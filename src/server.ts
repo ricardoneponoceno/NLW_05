@@ -1,18 +1,10 @@
-import express from "express";
-
-import "./database";
-import { routes } from "./routes";
-
-const app = express();
-
-app.use(express.json());
-
-app.use(routes);
+import { http } from "./http";
+import "./websocket/client";
 
 
 /**
  * GET = Buscas
- * POSST = Criação
+ * POST = Criação
  * PUT = Alteração
  * DELETE = Deletar
  * PATCH = Alterar uma informação especifica
@@ -30,4 +22,4 @@ app.post("/", (request, response) => {
 });
 */
 
-app.listen(3333, () => console.log("Server is running on port 3333"));
+http.listen(3333, () => console.log("Server is running on port 3333"));
